@@ -1,0 +1,51 @@
+{
+  "id": "harry-potter-2",
+  "title": "哈利·波特与密室",
+  "subtitle": "第二学年 · 续作 / 支持继承",
+  "description": "续作示例：它声明接受来自《哈利·波特与魔法石》的结局存档。带着上一部的能力、人际关系和关键选择进入二年级，剧情会因为你的过去而改变。",
+  "coverIcon": "menu_book",
+  "coverColor": "#3c5a6e",
+  "tags": [
+    "哈利波特",
+    "续作",
+    "继承",
+    "测试"
+  ],
+  "author": "世界树示例",
+  "mode": "script",
+  "rulePackId": "narrative",
+  "opening": "暑假的最后一周。女贞路四号。\n\n你的窗户上装着铁栏杆，一个家养小精灵坐在你的床上。\n\n「哈利·波特不能回霍格沃茨。」它说。",
+  "setting": "1992 年的英国，霍格沃茨第二学年。\n\n主线：密室被打开，学生不断被石化，哈利发现自己是蛇佬腔，被怀疑是斯莱特林的继承人，最终在密室中面对伏地魔的少年形态汤姆·里德尔。\n\n如果你是从《魔法石》继承过来的角色，这个世界会记住你上一部做过什么：你与谁成了朋友或敌人、你有没有面对过伏地魔、你拥有哪些能力。",
+  "rules": {
+    "style": "英式童话奇幻，比第一部更阴暗一些，但仍保留校园幽默。",
+    "directives": [
+      "严格跟着剧情节拍走，不要提前跳到后面的章节。",
+      "如果玩家带着上一部的继承数据，请让这些过去自然生效，不要当作没发生过。",
+      "不要把洛哈特写得可爱——他是骗子，但要写得可笑。"
+    ],
+    "allowFreeInput": true,
+    "choiceCount": 2,
+    "autoAdvance": false,
+    "autoCheck": false,
+    "failForward": true
+  },
+  "worldBookId": "harry-potter-1",
+  "characterIds": [],
+  "scriptFile": "scripts/harry-potter-2.md",
+  "systemPromptOverride": "这是《哈利·波特与魔法石》的续作。玩家扮演哈利·波特，现在二年级。请用第三人称有限视角叙述。",
+  "inheritance": {
+    "enabled": true,
+    "accepts": [
+      "abilities",
+      "relationships",
+      "flags",
+      "items",
+      "summary"
+    ],
+    "fromWorldIds": [
+      "harry-potter-1"
+    ],
+    "decay": 1,
+    "header": "二年级 · 你从上一部带回来的东西"
+  }
+}

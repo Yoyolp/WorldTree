@@ -1,0 +1,125 @@
+{
+  "id": "hp-first-year",
+  "spec": "chara_card_v2",
+  "specVersion": "2.0",
+  "name": "一年级新生",
+  "description": "十一岁，霍格沃茨一年级新生。个子比同龄人矮半头，制服袖子总是长出一截。眼睛很安静——不是害羞，是在数东西：数走廊有几扇门、数谁说话时会摸鼻子、数钟敲了几下。",
+  "personality": "好奇、冷静、记性好、嘴很紧。不轻易相信\"因为规定\"这类解释。",
+  "scenario": "1991 年 9 月，霍格沃茨。",
+  "firstMes": "你把录取通知书翻过来，背面没有字。\n\n窗外的猫头鹰已经飞走了，只在窗台上留下一小片灰色的羽毛。\n\n信上写着你的名字、你的房间号，以及一句话：\n\n「九月一日，国王十字车站，九又四分之三站台。」",
+  "mesExample": "",
+  "creatorNotes": "示例角色：11 岁的调查员，属性按儿童缩放。",
+  "systemPrompt": "",
+  "postHistoryInstructions": "",
+  "alternateGreetings": [],
+  "tags": [
+    "好奇",
+    "观察",
+    "冷静",
+    "麻瓜出身"
+  ],
+  "creator": "世界树示例",
+  "characterVersion": "1.0",
+  "extensions": {},
+  "avatarIcon": "child_care",
+  "avatarColor": "#5a4a63",
+  "isPlayer": true,
+  "sheet": {
+    "attributes": {
+      "STR": 35,
+      "CON": 45,
+      "SIZ": 30,
+      "DEX": 70,
+      "APP": 50,
+      "INT": 65,
+      "POW": 55,
+      "EDU": 45,
+      "LUCK": 70
+    },
+    "skills": [
+      {
+        "name": "侦查",
+        "value": 55
+      },
+      {
+        "name": "聆听",
+        "value": 50
+      },
+      {
+        "name": "图书馆使用",
+        "value": 45
+      },
+      {
+        "name": "心理学",
+        "value": 40
+      },
+      {
+        "name": "话术",
+        "value": 45
+      },
+      {
+        "name": "潜行",
+        "value": 40
+      },
+      {
+        "name": "攀爬",
+        "value": 45
+      },
+      {
+        "name": "闪避",
+        "value": 50
+      },
+      {
+        "name": "神秘学",
+        "value": 25
+      },
+      {
+        "name": "急救",
+        "value": 30
+      }
+    ],
+    "hp": 8,
+    "hpMax": 8,
+    "mp": 11,
+    "mpMax": 11,
+    "san": 55,
+    "sanMax": 55,
+    "luck": 70,
+    "luckMax": 70,
+    "conditions": [],
+    "items": [
+      "录取通知书",
+      "一支铅笔（没有墨水）"
+    ],
+    "backstory": "麻瓜出身，从小就能注意到别人注意不到的事。",
+    "ideology": "先把事情看清楚，再决定要不要害怕。",
+    "significantPeople": "还在火车上没遇到。",
+    "meaningfulPlaces": "家里那间有窗户的小房间。"
+  },
+  "abilities": [
+    {
+      "id": "ab_notice",
+      "name": "从不漏看的眼睛",
+      "kind": "talent",
+      "description": "你会本能地记住场景里的异常：多出来的一扇门、少了一级的台阶、谁的手在抖。",
+      "effect": {
+        "checkBonus": [
+          {
+            "skill": "侦查",
+            "value": 10
+          },
+          {
+            "skill": "聆听",
+            "value": 5
+          }
+        ]
+      },
+      "uses": {
+        "max": 3,
+        "recharge": "scene"
+      },
+      "unlocked": true,
+      "inheritable": true
+    }
+  ]
+}

@@ -1,0 +1,121 @@
+{
+  "id": "lin-yan",
+  "spec": "chara_card_v2",
+  "specVersion": "2.0",
+  "name": "林砚",
+  "description": "二十七岁，《雾岬晨报》的次席记者。三年前从省城调来，本来只想混两年资历，却因为一篇关于失踪渔船的报道被主编冷藏，从此对这座城市起了执念。",
+  "personality": "嘴上玩世不恭，其实极度害怕被人看穿自己在意什么。习惯用玩笑掩饰紧张，在真正恐惧时反而会变得非常安静。",
+  "scenario": "受一封匿名信邀请，深夜抵达雾岬旧码头 7 号仓库。信上只有一句话：「白鸢号今晚会回来。」",
+  "firstMes": "「……所以，有人愿意解释一下为什么整座码头的钟都在同一分钟停了吗？」",
+  "mesExample": "记者：「我不信鬼，但我信证据。而证据现在正站在我面前，还在滴水。」\n记者（低声）：「好，我数到三。一，二——」",
+  "creatorNotes": "示例角色，玩家扮演。",
+  "systemPrompt": "林砚是玩家扮演的主角。他的台词要短、带着干涩的自嘲。不要替他说出超过一句的内心独白。",
+  "postHistoryInstructions": "",
+  "alternateGreetings": [
+    "「我不太喜欢雾。它让人看不清自己站在哪里。」"
+  ],
+  "tags": [
+    "调查员",
+    "记者",
+    "主角"
+  ],
+  "creator": "世界树示例",
+  "characterVersion": "1.0",
+  "extensions": {},
+  "characterBookId": null,
+  "avatarIcon": "newspaper",
+  "avatarColor": "#3f5b6b",
+  "avatarImage": null,
+  "isPlayer": true,
+  "sheet": {
+    "attributes": {
+      "STR": 50,
+      "CON": 55,
+      "SIZ": 60,
+      "DEX": 65,
+      "APP": 45,
+      "INT": 75,
+      "POW": 60,
+      "EDU": 80,
+      "LUCK": 55
+    },
+    "skills": [
+      {
+        "name": "侦查",
+        "value": 60,
+        "category": "探索"
+      },
+      {
+        "name": "聆听",
+        "value": 45,
+        "category": "探索"
+      },
+      {
+        "name": "图书馆使用",
+        "value": 70,
+        "category": "知识"
+      },
+      {
+        "name": "心理学",
+        "value": 40,
+        "category": "社交"
+      },
+      {
+        "name": "潜行",
+        "value": 30,
+        "category": "行动"
+      },
+      {
+        "name": "闪避",
+        "value": 42,
+        "category": "行动"
+      },
+      {
+        "name": "急救",
+        "value": 35,
+        "category": "知识"
+      },
+      {
+        "name": "神秘学",
+        "value": 25,
+        "category": "知识"
+      },
+      {
+        "name": "母语",
+        "value": 80,
+        "category": "语言"
+      },
+      {
+        "name": "克苏鲁神话",
+        "value": 8,
+        "category": "禁忌"
+      }
+    ],
+    "hp": 11,
+    "hpMax": 11,
+    "mp": 12,
+    "mpMax": 12,
+    "san": 60,
+    "sanMax": 60,
+    "luck": 55,
+    "luckMax": 99,
+    "conditions": [],
+    "items": [
+      "老式黄铜怀表",
+      "记者证",
+      "半盒火柴",
+      "拍立得相机（剩 3 张）"
+    ],
+    "backstory": "二十七岁，《雾岬晨报》的次席记者。三年前从省城调来，本来只想混两年资历。",
+    "ideology": "真相值得被写下来，哪怕没有人愿意读。",
+    "significantPeople": "主编老周——唯一没有放弃他的报道的人。",
+    "meaningfulPlaces": "省城那间朝北的出租屋。",
+    "treasuredPossessions": "父亲留下的黄铜怀表。",
+    "traits": "嘴上玩世不恭，其实极度害怕被看穿。",
+    "injuries": "",
+    "phobias": ""
+  },
+  "abilities": [],
+  "createdAt": 1795185871819,
+  "updatedAt": 1795599504519
+}

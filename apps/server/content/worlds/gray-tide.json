@@ -1,0 +1,43 @@
+{
+  "id": "gray-tide",
+  "title": "灰潮",
+  "subtitle": "雾岬港的第七次退潮",
+  "description": "二十七年前，货轮「白鸢号」在雾中消失。今晚，码头上的钟同时停了。你手里有一封匿名信，和一个不该出现在海图上的坐标。",
+  "coverIcon": "tsunami",
+  "coverColor": "#3f5b6b",
+  "tags": [
+    "克苏鲁",
+    "悬疑",
+    "跑团",
+    "港口"
+  ],
+  "author": "世界树示例",
+  "mode": "coc",
+  "rulePackId": "coc7",
+  "opening": "雾在凌晨两点漫过旧码头的铁轨。\n\n你踩在湿滑的木板上，手电的光柱被雾吞掉一半，只能照亮三米。远处传来一声汽笛——低沉、悠长，不属于任何一艘靠港的船。\n\n然后，整座码头的钟同时停了。",
+  "setting": "时代背景：1927 年的东亚某港口城市「雾岬」。技术水平接近现实 1920 年代，但存在超自然现象。\n\n核心谜团：货轮「白鸢号」每七年重现一次；退潮会认为海雾是「沉睡者」的呼吸；玩家手中的铅哨是打开某扇门的钥匙。\n\n基调：缓慢渗透的恐惧、潮湿、铅灰色、大量的雾与声音描写。避免血浆与怪物正面登场。",
+  "rules": {
+    "allowFreeInput": true,
+    "choiceCount": 3,
+    "autoAdvance": false,
+    "autoCheck": true,
+    "failForward": false,
+    "style": "冷静克制的中文叙事，短句，重感官（雾、盐、铁锈、湿木头）。",
+    "directives": [
+      "每次回复后给出 2-4 个行动选项，选项之间要有真实的取舍。",
+      "危险行为必须走技能检定，不要替玩家决定成败。",
+      "NPC 不会主动说出全部真相，需要玩家施压或交换。"
+    ]
+  },
+  "worldBookId": "gray-tide",
+  "characterIds": [
+    "lin-yan",
+    "han-xu",
+    "echo-girl",
+    "gu-ruo"
+  ],
+  "systemPromptOverride": "",
+  "sheetRulePrecedence": "character",
+  "createdAt": 1795597667734,
+  "updatedAt": 1795599505053
+}

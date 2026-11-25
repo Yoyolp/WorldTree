@@ -1,0 +1,37 @@
+{
+  "id": "night-library",
+  "title": "夜航图书馆",
+  "subtitle": "一座只在雨夜出现的图书馆",
+  "description": "城市的第四个街角，每逢雨夜会多出一栋不属于这条街的建筑。它的门永远虚掩，里面的书在等人来读——也在等有人把自己写进去。",
+  "coverIcon": "local_library",
+  "coverColor": "#4f6f52",
+  "tags": [
+    "奇幻",
+    "自由叙事",
+    "治愈",
+    "成长"
+  ],
+  "author": "世界树示例",
+  "mode": "story",
+  "rulePackId": "narrative",
+  "opening": "雨下到第三个小时的时候，你在回家的路口看见了一栋不该存在的建筑。\n\n两层高，砖是深绿色的，门楣上写着四个字：夜航图书馆。门缝里漏出暖黄的灯光，还有纸张翻动的声音。\n\n你站在雨里，伞沿的水连成一条线。",
+  "setting": "夜航图书馆只在雨夜出现，馆藏的是「还没被写出来的故事」。管理员是一位总在整理书脊的老人，他说自己是第一个读者。\n\n规则：\n1. 馆内的书可以读，但不能带走；\n2. 每读完一本，读者会遗忘自己的一段记忆；\n3. 若有人在馆内写下自己的故事，那本书就会永远留在馆里，而写作者会变成新的管理员。",
+  "rules": {
+    "style": "温柔、细腻，像雨声。允许留白，不必每次都给强冲突。",
+    "directives": [
+      "把读者的情绪当作剧情推进的主要动力。",
+      "每次回复给 2-3 个选项，其中一个可以偏向「什么都不做」。",
+      "允许玩家用自然语言输入任何行为，包括对话与沉默。"
+    ],
+    "allowFreeInput": true,
+    "choiceCount": 3,
+    "autoAdvance": false,
+    "autoCheck": false,
+    "failForward": true
+  },
+  "worldBookId": "night-library",
+  "characterIds": [
+    "librarian"
+  ],
+  "systemPromptOverride": ""
+}

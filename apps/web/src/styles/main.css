@@ -1,0 +1,476 @@
+/* ------------------------------------------------------------------ */
+/* 世界树 · 全局样式                                                    */
+/*                                                                     */
+/* 视觉方向：Material 3 Expressive                                      */
+/*  - 更大的形状半径（squircle 倾向），形状随状态 morph                     */
+/*  - 弹簧式动效（emphasized / spring easing），不是线性过渡               */
+/*  - 更疏的字距与更大的标题层级                                           */
+/*  - 色调分层靠 container 色阶，而不是描边                                */
+/* ------------------------------------------------------------------ */
+
+:root {
+  --wt-reader-width: 760px;
+  --wt-font-scale: 1;
+  --wt-font-serif: "Source Han Serif SC", "Noto Serif SC", "Songti SC", "SimSun", serif;
+  --wt-font-sans: "Inter", "PingFang SC", "Microsoft YaHei", system-ui, sans-serif;
+  --wt-sidebar-width: 268px;
+
+  /* ---- M3 Expressive 形状刻度 ---- */
+  --wt-shape-xs: 8px;
+  --wt-shape-sm: 12px;
+  --wt-shape-md: 20px;
+  --wt-shape-lg: 28px;
+  --wt-shape-xl: 36px;
+  --wt-shape-full: 999px;
+
+  /* 卡片默认用大圆角；旧变量名保留，避免各页面重复改 */
+  --wt-radius-card: var(--wt-shape-lg);
+  --wt-radius-pill: var(--wt-shape-full);
+
+  /* ---- 动效：弹簧感 ---- */
+  --wt-ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+  --wt-ease-emph: cubic-bezier(0.2, 0, 0, 1);
+  --wt-dur-fast: 140ms;
+  --wt-dur: 240ms;
+  --wt-dur-slow: 420ms;
+
+  /* ---- 间距节奏 ---- */
+  --wt-space-1: 4px;
+  --wt-space-2: 8px;
+  --wt-space-3: 12px;
+  --wt-space-4: 16px;
+  --wt-space-5: 24px;
+  --wt-space-6: 32px;
+
+  /* ---- 层级 ---- */
+  --wt-shadow-soft: 0 1px 2px rgba(0, 0, 0, 0.04), 0 4px 12px rgba(0, 0, 0, 0.06);
+  --wt-shadow-float: 0 2px 6px rgba(0, 0, 0, 0.06), 0 16px 36px rgba(0, 0, 0, 0.1);
+}
+
+html,
+body,
+#app {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--wt-font-sans);
+  background: rgb(var(--mdui-color-background));
+  color: rgb(var(--mdui-color-on-background));
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  overflow: hidden;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+a {
+  color: rgb(var(--mdui-color-primary));
+  text-decoration: none;
+}
+
+::selection {
+  background: rgba(var(--mdui-color-primary), 0.24);
+}
+
+/* 滚动条：细、低调 */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(var(--mdui-color-on-surface-variant), 0.22);
+  border-radius: var(--wt-shape-full);
+  border: 3px solid transparent;
+  background-clip: content-box;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(var(--mdui-color-on-surface-variant), 0.38);
+  background-clip: content-box;
+}
+
+/* 全局动效降级：尊重系统的「减少动态」偏好 */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* ------------------------------------------------------------------ */
+/* 布局工具                                                            */
+/* ------------------------------------------------------------------ */
+
+.wt-page {
+  height: 100%;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+.wt-container {
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 28px 28px 96px;
+}
+
+.wt-container-narrow {
+  max-width: 880px;
+  margin: 0 auto;
+  padding: 28px 28px 96px;
+}
+
+.wt-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.wt-col {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.wt-spacer {
+  flex: 1;
+}
+
+.wt-grid {
+  display: grid;
+  gap: 20px;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+}
+
+.wt-muted {
+  color: rgb(var(--mdui-color-on-surface-variant));
+}
+
+.wt-small {
+  font-size: 0.8125rem;
+  line-height: 1.5;
+}
+
+.wt-label {
+  font-size: 0.6875rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: rgb(var(--mdui-color-on-surface-variant));
+}
+
+.wt-divider {
+  height: 1px;
+  background: rgba(var(--mdui-color-outline-variant), 0.5);
+  margin: 20px 0;
+}
+
+/* ------------------------------------------------------------------ */
+/* 卡片：Expressive 的大形状 + 悬停时形状与阴影一起「呼吸」               */
+/* ------------------------------------------------------------------ */
+
+.wt-card {
+  background: rgb(var(--mdui-color-surface-container-low));
+  border-radius: var(--wt-shape-lg);
+  padding: 20px;
+  border: 1px solid transparent;
+  transition:
+    border-radius var(--wt-dur) var(--wt-ease-emph),
+    background var(--wt-dur) var(--wt-ease-emph),
+    box-shadow var(--wt-dur) var(--wt-ease-emph),
+    transform var(--wt-dur) var(--wt-ease-spring);
+}
+
+.wt-card-elevated {
+  box-shadow: var(--wt-shadow-soft);
+}
+
+.wt-card-title {
+  font-size: 1.125rem;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  margin: 0 0 4px;
+}
+
+.wt-clickable {
+  cursor: pointer;
+  transition:
+    transform var(--wt-dur) var(--wt-ease-spring),
+    box-shadow var(--wt-dur) var(--wt-ease-emph),
+    border-radius var(--wt-dur) var(--wt-ease-emph),
+    background var(--wt-dur) var(--wt-ease-emph);
+}
+
+/* Expressive 的关键细节：悬停不只是抬起来，圆角也变大一点 */
+.wt-clickable:hover {
+  transform: translateY(-4px);
+  border-radius: var(--wt-shape-xl);
+  background: rgb(var(--mdui-color-surface-container));
+  box-shadow: var(--wt-shadow-float);
+}
+
+.wt-clickable:active {
+  transform: translateY(-1px) scale(0.995);
+}
+
+/* ------------------------------------------------------------------ */
+/* 阅读器排版                                                          */
+/* ------------------------------------------------------------------ */
+
+.wt-icon {
+  display: inline-block;
+  line-height: 1;
+  vertical-align: middle;
+  user-select: none;
+  font-feature-settings: 'liga';
+}
+
+.wt-prose {
+  font-family: var(--wt-font-serif);
+  font-size: calc(1.0625rem * var(--wt-font-scale));
+  line-height: 1.95;
+  letter-spacing: 0.01em;
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+
+.wt-prose p {
+  margin: 0 0 1em;
+}
+
+.wt-prose em {
+  font-style: normal;
+  color: rgb(var(--mdui-color-primary));
+}
+
+.wt-dialogue {
+  color: rgb(var(--mdui-color-on-surface));
+}
+
+/* 打字机光标 */
+.wt-caret::after {
+  content: "";
+  display: inline-block;
+  width: 2px;
+  height: 1em;
+  margin-left: 2px;
+  vertical-align: -0.15em;
+  background: rgb(var(--mdui-color-primary));
+  animation: wt-blink 1s steps(2, start) infinite;
+}
+
+@keyframes wt-blink {
+  to {
+    visibility: hidden;
+  }
+}
+
+@keyframes wt-fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(10px) scale(0.99);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.wt-enter {
+  animation: wt-fade-up var(--wt-dur-slow) var(--wt-ease-spring) both;
+}
+
+/* 列表逐项入场：错开一点，读起来像「一张张落下来」 */
+.wt-stagger > * {
+  animation: wt-fade-up var(--wt-dur-slow) var(--wt-ease-emph) both;
+}
+.wt-stagger > *:nth-child(1) { animation-delay: 0ms; }
+.wt-stagger > *:nth-child(2) { animation-delay: 40ms; }
+.wt-stagger > *:nth-child(3) { animation-delay: 80ms; }
+.wt-stagger > *:nth-child(4) { animation-delay: 120ms; }
+.wt-stagger > *:nth-child(5) { animation-delay: 160ms; }
+.wt-stagger > *:nth-child(6) { animation-delay: 200ms; }
+.wt-stagger > *:nth-child(n + 7) { animation-delay: 240ms; }
+
+/* ------------------------------------------------------------------ */
+/* mdui 组件微调                                                        */
+/* ------------------------------------------------------------------ */
+
+mdui-text-field {
+  width: 100%;
+}
+
+mdui-select {
+  width: 100%;
+}
+
+.wt-chip-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+/* 顶部栏阴影 */
+mdui-top-app-bar {
+  --mdui-elevation-level1: none;
+}
+
+/* 导航抽屉 */
+mdui-navigation-drawer {
+  --mdui-color-surface: var(--mdui-color-surface-container-low);
+}
+
+/* mdui 按钮：统一成胶囊 + 弹性按压 */
+mdui-button,
+mdui-fab,
+mdui-extended-fab {
+  transition: transform var(--wt-dur-fast) var(--wt-ease-spring);
+}
+
+mdui-button:active,
+mdui-fab:active,
+mdui-extended-fab:active {
+  transform: scale(0.96);
+}
+
+/* 对话框：更大的圆角，符合 Expressive 的「大形状」 */
+mdui-dialog {
+  --mdui-shape-corner-extra-large: var(--wt-shape-xl);
+}
+
+/* 空状态 */
+.wt-empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  padding: 80px 24px;
+  text-align: center;
+  color: rgb(var(--mdui-color-on-surface-variant));
+}
+
+/* Expressive 用「形状 + 色块」代替 emoji 大图标 */
+.wt-empty-icon {
+  width: 84px;
+  height: 84px;
+  display: grid;
+  place-items: center;
+  border-radius: var(--wt-shape-xl);
+  background: rgb(var(--mdui-color-surface-container-high));
+  color: rgb(var(--mdui-color-on-surface-variant));
+}
+
+.wt-empty-icon .material-icons-outlined,
+.wt-empty-icon .material-icons-round {
+  font-size: 2.25rem;
+}
+
+.wt-empty-title {
+  font-size: 1.0625rem;
+  font-weight: 600;
+  color: rgb(var(--mdui-color-on-surface));
+}
+
+.wt-empty-emoji {
+  font-size: 3rem;
+  opacity: 0.8;
+}
+
+/* 代码/元数据等宽显示 */
+.wt-mono {
+  font-family: "JetBrains Mono", Consolas, monospace;
+  font-size: 0.8125rem;
+}
+
+/* 滚动区域 */
+.wt-scroll {
+  overflow-y: auto;
+  overscroll-behavior: contain;
+}
+
+/* ------------------------------------------------------------------ */
+/* 通用小部件：Expressive 的 chip / pill / 图标底板                      */
+/* ------------------------------------------------------------------ */
+
+.wt-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 5px 12px;
+  border-radius: var(--wt-shape-full);
+  font-size: 0.75rem;
+  font-weight: 500;
+  background: rgb(var(--mdui-color-secondary-container));
+  color: rgb(var(--mdui-color-on-secondary-container));
+}
+
+.wt-icon-badge {
+  display: inline-grid;
+  place-items: center;
+  border-radius: var(--wt-shape-md);
+  background: rgb(var(--mdui-color-primary-container));
+  color: rgb(var(--mdui-color-on-primary-container));
+}
+
+/* 统一的「区块标题」：Expressive 喜欢大标题 + 小注脚 */
+.wt-section-title {
+  margin: 0;
+  font-size: 1.375rem;
+  font-weight: 650;
+  letter-spacing: -0.015em;
+  color: rgb(var(--mdui-color-on-surface));
+}
+
+.wt-section-sub {
+  margin: 4px 0 0;
+  font-size: 0.8125rem;
+  color: rgb(var(--mdui-color-on-surface-variant));
+}
+
+@media (max-width: 720px) {
+  .wt-container,
+  .wt-container-narrow {
+    padding: 18px 14px 96px;
+  }
+  .wt-grid {
+    grid-template-columns: 1fr;
+  }
+  .wt-section-title {
+    font-size: 1.1875rem;
+  }
+}
+
+/* ------------------------------------------------------------------ */
+/* Material Icons 统一尺寸与对齐                                       */
+/* ------------------------------------------------------------------ */
+
+.material-icons,
+.material-icons-outlined,
+.material-icons-round {
+  font-feature-settings: "liga";
+  user-select: none;
+}
+
+/* 按钮内图标 */
+mdui-button .material-icons-outlined,
+mdui-button .material-icons-round,
+mdui-button .material-icons {
+  font-size: 1.125rem;
+}
+
+/* 图标按钮统一 */
+.icon-slot {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}

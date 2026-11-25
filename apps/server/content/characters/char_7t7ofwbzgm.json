@@ -1,0 +1,107 @@
+{
+  "id": "char_7t7ofwbzgm",
+  "spec": "chara_card_v2",
+  "specVersion": "2.0",
+  "name": "Test",
+  "description": "这是一个测试角色，可以很强大也可以很弱小，方便测试所有分支",
+  "personality": "",
+  "scenario": "",
+  "firstMes": "",
+  "mesExample": "",
+  "creatorNotes": "",
+  "systemPrompt": "",
+  "postHistoryInstructions": "",
+  "alternateGreetings": [],
+  "tags": [],
+  "creator": "",
+  "characterVersion": "1.0",
+  "extensions": {},
+  "characterBookId": null,
+  "avatarIcon": "person",
+  "avatarColor": "#4f6f52",
+  "avatarImage": null,
+  "isPlayer": false,
+  "sheet": {
+    "attributes": {
+      "STR": 99,
+      "CON": 99,
+      "SIZ": 50,
+      "DEX": 99,
+      "APP": 99,
+      "INT": 99,
+      "POW": 99,
+      "EDU": 99,
+      "LUCK": 99
+    },
+    "skills": [
+      {
+        "name": "侦查",
+        "value": 99
+      },
+      {
+        "name": "聆听",
+        "value": 99
+      },
+      {
+        "name": "图书馆使用",
+        "value": 99
+      },
+      {
+        "name": "心理学",
+        "value": 99
+      },
+      {
+        "name": "潜行",
+        "value": 99
+      },
+      {
+        "name": "闪避",
+        "value": 99
+      },
+      {
+        "name": "急救",
+        "value": 99
+      },
+      {
+        "name": "格斗",
+        "value": 99
+      }
+    ],
+    "hp": 99,
+    "hpMax": 99,
+    "mp": 99,
+    "mpMax": 99,
+    "san": 99,
+    "sanMax": 99,
+    "luck": 50,
+    "luckMax": 99,
+    "conditions": [],
+    "items": []
+  },
+  "abilities": [
+    {
+      "id": "ab_mwrxcn52",
+      "name": "改判定a",
+      "kind": "cheat",
+      "description": "将失败判定转化为成功",
+      "effect": {
+        "checkBonus": []
+      },
+      "unlocked": true,
+      "inheritable": true
+    },
+    {
+      "id": "ab_mwrxdmaf",
+      "name": "该判定b",
+      "kind": "cheat",
+      "description": "可以将成功的判定改为失败",
+      "effect": {
+        "checkBonus": []
+      },
+      "unlocked": true,
+      "inheritable": true
+    }
+  ],
+  "createdAt": 1795357218118,
+  "updatedAt": 1795596032826
+}

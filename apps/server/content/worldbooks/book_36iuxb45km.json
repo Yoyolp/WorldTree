@@ -1,0 +1,40 @@
+{
+  "id": "book_36iuxb45km",
+  "name": "图片测试世界书",
+  "description": "",
+  "entries": [
+    {
+      "id": "entry_img_test",
+      "comment": "带图的条目",
+      "keys": [
+        "测试关键词"
+      ],
+      "secondaryKeys": [],
+      "selective": false,
+      "selectiveLogic": "and",
+      "constant": false,
+      "caseSensitive": false,
+      "useRegex": false,
+      "matchWholeWords": false,
+      "priority": 50,
+      "insertionOrder": 0,
+      "position": "before_char",
+      "depth": 0,
+      "probability": 100,
+      "useProbability": false,
+      "group": "",
+      "cooldown": 0,
+      "sticky": 0,
+      "content": "条目正文",
+      "maxChars": 0,
+      "enabled": true,
+      "image": "assets/test-ytmeo345hi.png",
+      "imageCaption": "这是一张测试图"
+    }
+  ],
+  "scanDepth": 6,
+  "tokenBudget": 4000,
+  "recursiveScanning": false,
+  "createdAt": 1795595358262,
+  "updatedAt": 1795595358289
+}

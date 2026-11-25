@@ -1,0 +1,8 @@
+packages:
+  - apps/*
+  - packages/*
+
+# pnpm 12：允许运行构建脚本的依赖
+allowBuilds:
+  esbuild: true
+  '@rolldown/binding-win32-x64-msvc': true

@@ -1,0 +1,28 @@
+{
+  "name": "@worldtree/web",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vue-tsc --noEmit && vite build",
+    "build:only": "vite build",
+    "preview": "vite preview",
+    "typecheck": "vue-tsc --noEmit"
+  },
+  "dependencies": {
+    "@worldtree/shared": "workspace:*",
+    "material-icons": "^1.13.14",
+    "mdui": "^2.1.5",
+    "pinia": "^3.0.4",
+    "vue": "3.5.45",
+    "vue-router": "^4.6.5"
+  },
+  "devDependencies": {
+    "@mdui/icons": "^1.0.4",
+    "@vitejs/plugin-vue": "^6.0.11",
+    "typescript": "^5.9.3",
+    "vite": "^8.3.8",
+    "vue-tsc": "^3.3.14"
+  }
+}

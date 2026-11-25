@@ -1,0 +1,19 @@
+{
+  "name": "worldtree",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "世界树 · AI 互动阅读与跑团平台",
+  "scripts": {
+    "dev": "pnpm --parallel --filter \"@worldtree/*\" dev",
+    "dev:server": "pnpm --filter @worldtree/server dev",
+    "dev:web": "pnpm --filter @worldtree/web dev",
+    "build": "pnpm --filter @worldtree/server build && pnpm --filter @worldtree/web build",
+    "start": "pnpm --filter @worldtree/server start",
+    "typecheck": "pnpm -r typecheck",
+    "clean": "pnpm -r exec node -e \"const fs=require('fs');for(const d of ['dist','.vite'])fs.rmSync(d,{recursive:true,force:true})\""
+  },
+  "engines": {
+    "node": ">=22.5"
+  }
+}

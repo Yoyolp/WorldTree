@@ -1,0 +1,37 @@
+{
+  "id": "last-train",
+  "title": "末班列车",
+  "subtitle": "一条会自己改道的铁轨",
+  "description": "你在末班车上醒来，车厢里没有其他乘客，窗外是一片你从未见过的雪原。列车员说：这趟车只在有人做出「正确选择」时才会到站。",
+  "coverIcon": "train",
+  "coverColor": "#5a4a63",
+  "tags": [
+    "剧本",
+    "悬疑",
+    "循环",
+    "短篇"
+  ],
+  "author": "世界树示例",
+  "mode": "script",
+  "rulePackId": "coc7",
+  "opening": "列车晃了一下，你从座位上惊醒。\n\n车厢里空无一人。灯管在头顶发出细微的电流声。窗外没有城市，只有一片望不到边的雪原，和被雪覆盖的铁轨——它们在前方分岔，又分岔。\n\n广播响了：「各位乘客，本次列车不设终点站。请在每一次停车前，做出选择。」",
+  "setting": "这是一辆永远在夜间行驶的列车。车厢有七节，每节都对应一个「乘客的记忆」。列车员是一个穿着旧制服、脸被帽檐遮住的男人。铁轨会随着乘客的选择改变走向。\n\n核心机制：每次做出选择，列车会短暂停车；玩家若在停车时下车，会进入那节车厢对应的记忆。",
+  "rules": {
+    "style": "安静、略带诗意，大量关于光、雪、金属与回声的意象。",
+    "directives": [
+      "严格按剧情节拍推进，不要提前揭示列车员身份。",
+      "让每个选择都留下代价。"
+    ],
+    "allowFreeInput": true,
+    "choiceCount": 3,
+    "autoAdvance": false,
+    "autoCheck": true,
+    "failForward": false
+  },
+  "worldBookId": "night-library",
+  "characterIds": [
+    "lin-yan"
+  ],
+  "scriptFile": "scripts/last-train.md",
+  "systemPromptOverride": ""
+}
